@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/890cde8ff4.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <style>
+        form {
+            margin-bottom: 0.5rem;
+        }
+
+        span {
+            margin-left: 0.2rem;
+        }
+
+        .card-columns {
+            column-count: 3;
+        }
+
+        .card {
+            margin-bottom: 10px;
+        }
+
+        .body-header {
+            display: flex;
+            justify-content: space-between;
+            margin-left: 0.4rem;
+            margin-right: 0.4rem;
+        }
+
+        .body {
+            margin-bottom: 0.3rem;
+        }
+
+        .card-body {
+            padding: 0%;
+            margin-top: 0.6rem;
+        }
+
+        .body-footer {
+            margin-left: 0.4rem;
+            margin-right: 0.4rem;
+        }
+    </style>
+    <title>Instagram Photo Feed with Bootstrap</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fa-brands fa-instagram mr-1"></i>
+                <span>Instagram</span>
+            </a>
+            <!-- Create a new post -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                data-bs-target="#postModal">
+                                Create a new post
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="postModalLabel">Create a new post</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="Caption" class="fw-semibold">Caption: </label>
+                                                    <textarea class="form-control" id="Caption" rows="2"
+                                                        placeholder="Add the caption of your post here"></textarea>
+                                                </div>
+                                            </form>
+                                            <button type="button" class="btn btn-light"><i
+                                                    class="fa-solid fa-camera"></i></button>
+                                            <button type="button" class="btn btn-light"><i
+                                                    class="fa-solid fa-location-dot"></i></button>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-success">Publish</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <!-- Dropdown -->
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-gear"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Accesibility</a></li>
+                            <li><a class="dropdown-item" href="#">Privacy and Data </a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger" href="#">Log out</a></li>
+                        </ul>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Cells and square -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <nav>
+                    <!-- Menu -->
+                    <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-cells-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-cells" type="button" role="tab" aria-controls="nav-cells"
+                            aria-selected="true"><i class="fa-solid fa-table-cells"></i></button>
+                        <button class="nav-link" id="nav-square-tab" data-bs-toggle="tab" data-bs-target="#nav-square"
+                            type="button" role="tab" aria-controls="nav-square" aria-selected="false"><i
+                                class="fa-solid fa-square"></i></button>
+                    </div>
+                </nav>
+                <!-- cells -->
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-cells" role="tabpanel"
+                        aria-labelledby="nav-cells-tab" tabindex="0">
+                        <div class="card-columns">
+                            <div class="card">
+                                <img class="card-img" src="https://picsum.photos/id/195/800" alt="Card image">
+                            </div>
+                            <div class="card">
+                                <img class="card-img" src="https://picsum.photos/id/326/800" alt="Card image">
+                            </div>
+                            <div class="card">
+                                <img class="card-img" src="https://picsum.photos/id/40/800" alt="Card image">
+                            </div>
+
+                            <div class="card">
+                                <img class="card-img" src="https://picsum.photos/id/239/800" alt="Card image">
+                            </div>
+                            <div class="card">
+                                <img class="card-img" src="https://picsum.photos/id/31/800" alt="Card image">
+                            </div>
+                            <div class="card">
+                                <img class="card-img" src="https://picsum.photos/id/88/800" alt="Card image">
+                            </div>
+
+                            <div class="card">
+                                <img class="card-img" src="https://picsum.photos/id/156/800" alt="Card image">
+                            </div>
+                            <div class="card">
+                                <img class="card-img" src="https://picsum.photos/id/158/800" alt="Card image">
+                            </div>
+                            <div class="card">
+                                <img class="card-img" src="https://picsum.photos/id/106/800" alt="Card image">
+                            </div>
+
+                            <div class="card">
+                                <img class="card-img" src="https://picsum.photos/id/103/800" alt="Card image">
+                            </div>
+                            <div class="card">
+                                <img class="card-img" src="https://picsum.photos/id/237/800" alt="Card image">
+                            </div>
+                            <div class="card">
+                                <img class="card-img" src="https://picsum.photos/id/230/800" alt="Card image">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- square -->
+                    <div class="tab-pane fade" id="nav-square" role="tabpanel" aria-labelledby="nav-square-tab"
+                        tabindex="0">
+
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body-header">
+                                            <h5 class="card-title">Happy fall, y’all</h5>
+                                            <div class="card-text-right">
+                                                <p>11/08</p>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <img class="card-img" src="https://picsum.photos/id/195/800"
+                                                alt="Card image">
+                                        </div>
+                                        <div class="body-footer">
+                                            <h6>365 likes</h6>
+                                            <p>Can you beleaf this weather?</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body-header">
+                                            <h5 class="card-title">Feeling good, living better</h5>
+                                            <div class="card-text-right">
+                                                <p>12/23</p>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <img class="card-img" src="https://picsum.photos/id/31/800"
+                                                alt="Card image">
+                                        </div>
+                                        <div class="body-footer">
+                                            <h6>390 likes</h6>
+                                            <p>Self-love is the best love</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body-header">
+                                            <h5 class="card-title">Summer lovin’</h5>
+                                            <div class="card-text-right">
+                                                <p>02/28</p>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <img class="card-img" src="https://picsum.photos/id/106/800"
+                                                alt="Card image">
+                                        </div>
+                                        <div class="body-footer">
+                                            <h6>408 likes</h6>
+                                            <p>Paradise found</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body-header">
+                                            <h5 class="card-title">Good food = good mood</h5>
+                                            <div class="card-text-right">
+                                                <p>03/14</p>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <img class="card-img" src="https://picsum.photos/id/326/800"
+                                                alt="Card image">
+                                        </div>
+                                        <div class="body-footer">
+                                            <h6>600 likes</h6>
+                                            <p>Appreciate the little things</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body-header">
+                                            <h5 class="card-title">Every moment matters</h5>
+                                            <div class="card-text-right">
+                                                <p>04/16</p>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <img class="card-img" src="https://picsum.photos/id/88/800"
+                                                alt="Card image">
+                                        </div>
+                                        <div class="body-footer">
+                                            <h6>200 likes</h6>
+                                            <p>I needed some vitamin U</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body-header">
+                                            <h5 class="card-title">Less is more</h5>
+                                            <div class="card-text-right">
+                                                <p>05/16</p>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <img class="card-img" src="https://picsum.photos/id/103/800"
+                                                alt="Card image">
+                                        </div>
+                                        <div class="body-footer">
+                                            <h6>365 likes</h6>
+                                            <p>Life is too short not to smile</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body-header">
+                                            <h5 class="card-title">Best memories </h5>
+                                            <div class="card-text-right">
+                                                <p>06/06</p>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <img class="card-img" src="https://picsum.photos/id/40/800"
+                                                alt="Card image">
+                                        </div>
+                                        <div class="body-footer">
+                                            <h6>805 likes</h6>
+                                            <p>If I don't post a picture, did it really happen?</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body-header">
+                                            <h5 class="card-title">Wild things</h5>
+                                            <div class="card-text-right">
+                                                <p>07/14</p>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <img class="card-img" src="https://picsum.photos/id/156/800"
+                                                alt="Card image">
+                                        </div>
+                                        <div class="body-footer">
+                                            <h6>1642 likes</h6>
+                                            <p>They told me I couldn't, so I did</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body-header">
+                                            <h5 class="card-title">What a cutie</h5>
+                                            <div class="card-text-right">
+                                                <p>08/24</p>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <img class="card-img" src="https://picsum.photos/id/237/800"
+                                                alt="Card image">
+                                        </div>
+                                        <div class="body-footer">
+                                            <h6>1645 likes</h6>
+                                            <p>Dogs are my favorite people</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body-header">
+                                            <h5 class="card-title">Sweeter than honey</h5>
+                                            <div class="card-text-right">
+                                                <p>09/21</p>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <img class="card-img" src="https://picsum.photos/id/239/800"
+                                                alt="Card image">
+                                        </div>
+                                        <div class="body-footer">
+                                            <h6>978 likes</h6>
+                                            <p>I am the princess of my own fairytale</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body-header">
+                                            <h5 class="card-title">Blessing your feed</h5>
+                                            <div class="card-text-right">
+                                                <p>10/30</p>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <img class="card-img" src="https://picsum.photos/id/158/800"
+                                                alt="Card image">
+                                        </div>
+                                        <div class="body-footer">
+                                            <h6>2619 likes</h6>
+                                            <p>Just a sprinkle of magic</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body-header">
+                                            <h5 class="card-title">Mood</h5>
+                                            <div class="card-text-right">
+                                                <p>11/18</p>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <img class="card-img" src="https://picsum.photos/id/230/800"
+                                                alt="Card image">
+                                        </div>
+                                        <div class="body-footer">
+                                            <h6>3628 likes</h6>
+                                            <p>When you want something, all the universe conspires in helping you to achieve it.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-2"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
